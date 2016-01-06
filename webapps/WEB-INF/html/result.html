@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1><span th:text="${message}"></span></h1>
+	<div th:replace="default/footer :: ${isMember} ? header-member : header"></div>
+	<table>
+		<tr>
+			<td>
+				Name :
+			</td>
+			<td>
+				<span th:text="${memberName}"></span>
+			</td>
+		</tr>
+		<tr>
+			<td colspan='2'>
+				<button type="submit" name="back" th:action="@{/helloPage}" >Back</button>
+			</td>
+		</tr>
+	</table>
+	<div th:replace="default/footer :: ${isMember} ? footer-member : footer"></div>
+</body>
+</html>

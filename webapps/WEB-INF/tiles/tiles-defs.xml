@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE tiles-definitions PUBLIC
+          "-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN"
+          "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+ 
+<tiles-definitions>
+	<definition name="baseProperties">
+		<put-attribute name="title"	value="Testing123" />
+		<put-attribute name="description" value="Testing123" />
+		<put-attribute name="keywords" value="Testing123"/>
+	</definition>
+</tiles-definitions>
