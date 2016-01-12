@@ -1,10 +1,20 @@
 package ymproject.commandObject;
 
-import java.util.concurrent.atomic.AtomicInteger;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
 
+@Entity
+@Table(name="COMMAND_MEMBER")
 public class CommandMember {
-	private static final AtomicInteger count = new AtomicInteger(0); 
-	private int id;
+	@Id
+	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="MEMBER_SEQ")
+	@SequenceGenerator(name="MEMBER_SEQ", sequenceName="command_member_seq",allocationSize=1)
+	private Long id;
 	private String name;
 	private String emailAdd;
 	private String emailDom;
@@ -19,7 +29,6 @@ public class CommandMember {
 	public CommandMember(String name, String emailAdd, String emailDom, String phoneNumber, String password,
 			String address) {
 		super();
-		this.id = count.incrementAndGet();
 		this.name = name;
 		this.emailAdd = emailAdd;
 		this.emailDom = emailDom;
@@ -29,7 +38,6 @@ public class CommandMember {
 	}
 
 	public CommandMember() {
-		this.id = count.incrementAndGet();
 	}
 
 	public void setName(String name) {
@@ -40,12 +48,6 @@ public class CommandMember {
 	}
 	public void setAddress(String address) {
 		this.address = address;
-	}
-	public String getEmail() {
-		return emailAdd;
-	}
-	public void setEmail(String emailAdd) {
-		this.emailAdd = emailAdd;
 	}
 	public String getEmailAdd() {
 		return emailAdd;
@@ -71,13 +73,17 @@ public class CommandMember {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-
-	public int getId() {
+	public Long getId() {
 		return id;
 	}
-
-	public void setId(int id) {
+	public void setId(Long id) {
 		this.id = id;
+	}
+
+	@Override
+	public String toString() {
+		return "CommandMember [id=" + id + ", name=" + name + ", emailAdd=" + emailAdd + ", emailDom=" + emailDom
+				+ ", phoneNumber=" + phoneNumber + ", password=" + password + ", address=" + address + "]";
 	}
 	
 }

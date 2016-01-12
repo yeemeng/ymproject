@@ -16,8 +16,8 @@ public class AppInitializer implements WebApplicationInitializer {
 	public void onStartup(ServletContext servletContext) throws ServletException {
         WebApplicationContext context = getContext();
         servletContext.addListener(new ContextLoaderListener(context));
-        servletContext.addListener(new Log4jConfigListener());
-        servletContext.setInitParameter("log4jConfigLocation", "/WEB-INF/log4j.properties");
+        //servletContext.addListener(new Log4jConfigListener());
+        //servletContext.setInitParameter("log4jConfigLocation", "/WEB-INF/log4j.properties");
         ServletRegistration.Dynamic dispatcher = servletContext.addServlet("DispatcherServlet", new DispatcherServlet(context));
         dispatcher.setLoadOnStartup(1);
         dispatcher.addMapping("*.html");
